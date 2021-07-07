@@ -1,11 +1,11 @@
-import { Formik } from 'formik';
-import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
-import Input from '../../components/shared/Input';
-import ModalEvents from '../../constants/ModalEvents';
+import { Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import React, { memo } from 'react';
 import { getFieldProps } from '../../utils';
 import DataModal from '../DataModal';
+import Input from '../../components/shared/Input';
+import ModalEvents from '../../constants/ModalEvents';
 
 const initialValues = {
   url: '',
@@ -23,8 +23,7 @@ const SocialModal = () => {
     username: Yup.string().required(t('shared.forms.validation.required')),
     url: Yup.string()
       .min(5, t('shared.forms.validation.min', { number: 5 }))
-      .required(t('shared.forms.validation.required'))
-      .url(t('shared.forms.validation.url')),
+      .required(t('shared.forms.validation.required')),
   });
 
   return (

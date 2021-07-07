@@ -20,6 +20,9 @@ coverage
 # nyc test coverage
 .nyc_output
 
+# Coverage directory used by Jest
+test-coverage
+
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
@@ -52,7 +55,7 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env
 
 # gatsby files
 .cache/

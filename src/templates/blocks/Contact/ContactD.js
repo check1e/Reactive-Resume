@@ -1,11 +1,12 @@
-import React, { memo, useContext } from 'react';
-import { useTranslation } from 'react-i18next';
 import { MdFlare } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
+import React, { memo, useContext } from 'react';
+import { hasAddress, isItemVisible, safetyCheck } from '../../../utils';
+import BirthDateA from '../BirthDate/BirthDateA';
 import PageContext from '../../../contexts/PageContext';
-import { safetyCheck } from '../../../utils';
 
-const ContactItem = ({ value, label, link }) => {
-  return value ? (
+const ContactItem = ({ value, label, link }) =>
+  value ? (
     <div className="flex flex-col">
       <h6 className="capitalize font-semibold">{label}</h6>
       {link ? (
@@ -17,7 +18,6 @@ const ContactItem = ({ value, label, link }) => {
       )}
     </div>
   ) : null;
-};
 
 const ContactD = () => {
   const { t } = useTranslation();
@@ -42,7 +42,7 @@ const ContactD = () => {
         <MdFlare size="20px" />
       </div>
 
-      {data.profile.address.line1 && (
+      {hasAddress(data.profile.address) && (
         <div>
           <h6 className="capitalize font-semibold">
             {t('shared.forms.address')}
@@ -73,15 +73,20 @@ const ContactD = () => {
         link={`mailto:${data.profile.email}`}
       />
 
+      <BirthDateA />
+
       {safetyCheck(data.social) &&
-        data.social.items.map((x) => (
-          <ContactItem
-            key={x.id}
-            value={x.username}
-            label={x.network}
-            link={x.url}
-          />
-        ))}
+        data.social.items.map(
+          (x) =>
+            isItemVisible(x) && (
+              <ContactItem
+                key={x.id}
+                value={x.username}
+                label={x.network}
+                link={x.url}
+              />
+            ),
+        )}
     </div>
   );
 };

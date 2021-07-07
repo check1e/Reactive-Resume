@@ -9,6 +9,7 @@
       "required": "påkrevd",
       "website": "Hjemmeside",
       "date": "Dato",
+      "present": "NÃ¥tid",
       "position": "Stilling",
       "startDate": "Startdato",
       "endDate": "Sluttdato",
@@ -17,14 +18,14 @@
       "email": "E-postadresse",
       "summary": "Oppsummering",
       "markdown": "Dette tekstfeltet støtter <1>markdown</1>.",
+      "contact": "Kontakt",
       "validation": {
         "min": "Vennligst tast minst {{number}} tegn.",
         "dateRange": "Sluttdato må være etter startdato.",
         "email": "Dette må være en gyldig e-postadresse.",
         "required": "Dette er et obligatorisk felt.",
         "url": "Må være en korrekt URL."
-      },
-      "present": ""
+      }
     },
     "buttons": {
       "add": "Legg til",
@@ -60,7 +61,8 @@
     "toasts": {
       "formErrors": "Du må fylle ut alle nødvendige felt før du sender inn skjemaet.",
       "doesNotExist": "CV-en du leter etter eksisterer ikke lenger ... eller kanskje den aldri eksisterte?",
-      "loadDemoData": "Er du i tvil om hvor du skal begynne? Prøv å laste inn demodata for å se hva Reactive Resume har å tilby."
+      "loadDemoData": "Er du i tvil om hvor du skal begynne? Prøv å laste inn demodata for å se hva Reactive Resume har å tilby.",
+      "printError": "Skyfunksjonen får problemer, prøv igjen senere eller bruk utskriftsfunksjonen til nettleseren."
     },
     "sections": {
       "heading": "Overskrift",
@@ -86,6 +88,7 @@
       "templates": "Maler",
       "layout": "Oppsett",
       "colors": "Farger",
+      "font-size": "Skriftstørrelse",
       "fonts": "Skrifttyper",
       "actions": "Handlinger",
       "settings": "Innstillinger",
@@ -95,6 +98,7 @@
       "photograph": "Foto",
       "firstName": "Fornavn",
       "lastName": "Etternavn",
+      "birthDate": "Fødselsdato",
       "address": {
         "line1": "Adresselinje 1",
         "line2": "Adresselinje 2",
@@ -190,7 +194,7 @@
       "sourceCode": {
         "heading": "kildekode",
         "text": "Vil du kjøre prosjektet fra kildekoden? Er du en utvikler som vil bidra til åpen kildekodeutvikling av dette prosjektet? Klikk på knappen nedenfor.",
-        "button": "GitHub Repo"
+        "button": "Github Repo"
       },
       "footer": "Laget med kjærlighet av <1> Amruth Pillai </1>"
     },

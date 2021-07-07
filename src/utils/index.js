@@ -1,16 +1,24 @@
+import { clone, get, isEmpty } from 'lodash';
 import dayjs from 'dayjs';
-import { get, isEmpty } from 'lodash';
-import { useTranslation } from 'react-i18next';
 
-export const getModalText = (isEditMode, type) => {
-  const { t } = useTranslation();
-  return isEditMode
+export const getModalText = (isEditMode, type, t) =>
+  isEditMode
     ? `${t('shared.buttons.edit')} ${type}`
     : `${t('shared.buttons.add')} ${type}`;
-};
 
-export const safetyCheck = (section, path = 'items') => {
-  return !!(section && section.visible === true && !isEmpty(section[path]));
+export const safetyCheck = (section, path = 'items') =>
+  !!(section && section.visible === true && !isEmpty(section[path]));
+
+export const isItemVisible = (section) =>
+  section && section.isVisible !== false;
+
+// Thought about creating a generic function to filter out non-visible items
+export const genericFilter = (key, data) => {
+  const clonedData = clone(data);
+  clonedData[`${key}`].items = clonedData[`${key}`].items.filter((x) =>
+    isItemVisible(x),
+  );
+  return data;
 };
 
 export const handleKeyUp = (event, action) => {
@@ -22,12 +30,24 @@ export const isFileImage = (file) => {
   return file && acceptedImageTypes.includes(file.type);
 };
 
-export const formatDate = ({ date, language = 'en' }) => {
-  return dayjs(date).locale(language.substr(0, 2)).format('MMMM YYYY');
+export const scaler = (value) => {
+  const logMax = 2.5;
+  const logMin = 0.6;
+  const steps = 20;
+  const logRange = logMax / logMin;
+  const logStepSize = logRange ** (1 / steps);
+  const min = 0;
+
+  return logStepSize ** (value - min) * logMin;
 };
 
-export const formatDateRange = ({ startDate, endDate, language = 'en' }) => {
-  const { t } = useTranslation();
+export const formatDate = ({ date, language = 'en', includeDay = false }) => {
+  const template = includeDay ? 'DD MMMM YYYY' : 'MMMM YYYY';
+
+  return dayjs(date).locale(language.substr(0, 2)).format(template);
+};
+
+export const formatDateRange = ({ startDate, endDate, language = 'en' }, t) => {
   const start = `${dayjs(startDate)
     .locale(language.substr(0, 2))
     .format('MMMM YYYY')}`;
@@ -46,10 +66,16 @@ export const getFieldProps = (formik, schema, name) => ({
   ...formik.getFieldProps(name),
 });
 
+export const unsplashPhotoRequestUrl =
+  'https://source.unsplash.com/featured/400x600';
+
 export const getUnsplashPhoto = async () => {
-  const response = await fetch('https://source.unsplash.com/featured/400x600');
+  const response = await fetch(unsplashPhotoRequestUrl);
   return response.url;
 };
+
+export const hasAddress = (address) =>
+  !!address.line1 || !!address.line2 || !!address.city || !!address.pincode;
 
 export const hexToRgb = (hex) => {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -110,3 +136,6 @@ export const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
   const blob = new Blob(byteArrays, { type: contentType });
   return blob;
 };
+
+export const delay = (milliseconds) =>
+  new Promise((resolve) => setTimeout(resolve, milliseconds));

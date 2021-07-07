@@ -9,7 +9,7 @@
       "required": "Requis",
       "website": "Site web",
       "date": "Date",
-      "present": "Cadeau",
+      "present": "Présent",
       "position": "Poste",
       "startDate": "Début",
       "endDate": "Fin",
@@ -18,6 +18,7 @@
       "email": "Adresse e-mail",
       "summary": "Résumé",
       "markdown": "Ce bloc de texte est compatible avec <1>markdown</1>.",
+      "contact": "Contact",
       "validation": {
         "min": "Merci d'entrer au minimum {{number}} caractères.",
         "dateRange": "La date de fin doit être postérieure à la date de départ",
@@ -60,7 +61,8 @@
     "toasts": {
       "formErrors": "Il se peut que vous deviez remplir tous les champs requis avant de soumettre ce formulaire",
       "doesNotExist": "Le CV recherché n'existe plus (ou pas ?)",
-      "loadDemoData": "Vous ne savez pas où commencer? Essayez de charger les données de démonstration pour voir ce que Reactive Resume a à offrir."
+      "loadDemoData": "Vous ne savez pas où commencer? Essayez de charger les données de démonstration pour voir ce que Reactive Resume a à offrir.",
+      "printError": "La fonction cloud rencontre des difficultés, veuillez réessayer ultérieurement ou utiliser la fonction d'impression de votre navigateur web."
     },
     "sections": {
       "heading": "En-t̂ête",
@@ -86,6 +88,7 @@
       "templates": "Modèles",
       "layout": "Disposition",
       "colors": "Couleurs",
+      "font-size": "Taille de la police",
       "fonts": "Polices",
       "actions": "Actions",
       "settings": "Options",
@@ -95,6 +98,7 @@
       "photograph": "Photo",
       "firstName": "Prénom",
       "lastName": "Nom",
+      "birthDate": "Date de naissance",
       "address": {
         "line1": "Adresse (ligne 1)",
         "line2": "Adresse (ligne 2)",
@@ -129,7 +133,7 @@
       "fluency": "Aisance"
     },
     "layout": {
-      "block": "Bloquer",
+      "block": "Bloc",
       "reset": "Réinitialiser la Disposition",
       "text": "Ce modèle prend en charge {{count}} blocs."
     },

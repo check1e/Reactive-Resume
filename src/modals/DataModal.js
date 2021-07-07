@@ -1,14 +1,14 @@
-import { useFormikContext } from 'formik';
 import { isEmpty, isFunction } from 'lodash';
-import React, { memo, useContext, useEffect, useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
+import { useFormikContext } from 'formik';
+import { useTranslation } from 'react-i18next';
+import { v4 as uuidv4 } from 'uuid';
+import React, { memo, useContext, useEffect, useRef, useState } from 'react';
+import { useDispatch } from '../contexts/ResumeContext';
+import BaseModal from './BaseModal';
 import Button from '../components/shared/Button';
 import ModalContext from '../contexts/ModalContext';
-import { useDispatch } from '../contexts/ResumeContext';
 import { getModalText } from '../utils';
-import BaseModal from './BaseModal';
 
 const DataModal = ({
   name,
@@ -85,13 +85,13 @@ const DataModal = ({
   };
 
   const getTitle = isEmpty(title)
-    ? getModalText(isEditMode, name)
+    ? getModalText(isEditMode, name, t)
     : isEditMode
     ? title.edit
     : title.create;
 
   const submitAction = (
-    <Button type="submit" onClick={() => onSubmit(values)}>
+    <Button type="submit" isLoading={loading} onClick={() => onSubmit(values)}>
       {loading ? t('shared.buttons.loading') : getTitle}
     </Button>
   );

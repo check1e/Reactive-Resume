@@ -2,6 +2,7 @@ import {
   MdColorLens,
   MdDashboard,
   MdFontDownload,
+  MdFormatSize,
   MdImportExport,
   MdInfo,
   MdSettings,
@@ -24,6 +25,10 @@ export default [
   {
     id: 'fonts',
     icon: MdFontDownload,
+  },
+  {
+    id: 'font-size',
+    icon: MdFormatSize,
   },
   {
     id: 'actions',

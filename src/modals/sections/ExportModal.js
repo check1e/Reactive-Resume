@@ -1,14 +1,15 @@
+import { FaPrint } from 'react-icons/fa';
+import { clone } from 'lodash';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+import React, { memo, useContext, useEffect, useState } from 'react';
 import download from 'downloadjs';
 import firebase from 'gatsby-plugin-firebase';
-import { clone } from 'lodash';
-import React, { memo, useContext, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { FaPrint } from 'react-icons/fa';
+import { useSelector } from '../../contexts/ResumeContext';
+import BaseModal from '../BaseModal';
 import Button from '../../components/shared/Button';
 import ModalContext from '../../contexts/ModalContext';
-import { useSelector } from '../../contexts/ResumeContext';
 import { b64toBlob } from '../../utils';
-import BaseModal from '../BaseModal';
 
 const ExportModal = () => {
   const state = useSelector();
@@ -31,22 +32,22 @@ const ExportModal = () => {
     }
   };
 
-  const handleSinglePageDownload = async () => {
-    setLoadingSingle(true);
-    const printResume = firebase.functions().httpsCallable('printResume');
-    const { data } = await printResume({ id: state.id, type: 'single' });
-    const blob = b64toBlob(data, 'application/pdf');
-    download(blob, `RxResume-${state.id}.pdf`, 'application/pdf');
-    setLoadingSingle(false);
-  };
+  const handleDownload = async (isSinglePDF) => {
+    isSinglePDF ? setLoadingSingle(true) : setLoadingMulti(true);
 
-  const handleMultiPageDownload = async () => {
-    setLoadingMulti(true);
-    const printResume = firebase.functions().httpsCallable('printResume');
-    const { data } = await printResume({ id: state.id, type: 'multi' });
-    const blob = b64toBlob(data, 'application/pdf');
-    download(blob, `RxResume-${state.id}.pdf`, 'application/pdf');
-    setLoadingMulti(false);
+    try {
+      const printResume = firebase.functions().httpsCallable('printResume');
+      const { data } = await printResume({
+        id: state.id,
+        type: isSinglePDF ? 'single' : 'multi',
+      });
+      const blob = b64toBlob(data, 'application/pdf');
+      download(blob, `RxResume-${state.id}.pdf`, 'application/pdf');
+    } catch (error) {
+      toast(t('builder.toasts.printError'));
+    } finally {
+      isSinglePDF ? setLoadingSingle(false) : setLoadingMulti(false);
+    }
   };
 
   const handleExportToJson = () => {
@@ -93,14 +94,14 @@ const ExportModal = () => {
           <div className="flex">
             <Button
               isLoading={isLoadingSingle}
-              onClick={handleSinglePageDownload}
+              onClick={() => handleDownload(true)}
             >
               {t('modals.export.downloadPDF.buttons.single')}
             </Button>
             <Button
               className="ml-8"
               isLoading={isLoadingMulti}
-              onClick={handleMultiPageDownload}
+              onClick={() => handleDownload(false)}
             >
               {t('modals.export.downloadPDF.buttons.multi')}
             </Button>

@@ -1,6 +1,6 @@
-import firebase from 'gatsby-plugin-firebase';
-import React, { createContext, memo, useContext, useRef } from 'react';
 import { toast } from 'react-toastify';
+import React, { createContext, memo, useContext, useRef } from 'react';
+import firebase from 'gatsby-plugin-firebase';
 import { isFileImage } from '../utils';
 import { useDispatch, useSelector } from './ResumeContext';
 import UserContext from './UserContext';
@@ -33,7 +33,7 @@ const StorageProvider = ({ children }) => {
 
     if (file.size > 2097152) {
       toast.error(
-        "Your image seems to be bigger than 2 MB. That's way too much. Maybe consider reducing it's size?",
+        "Your image seems to be bigger than 2 MB. That's way too much. Maybe consider reducing its size?",
       );
       return null;
     }

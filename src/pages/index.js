@@ -1,10 +1,10 @@
-import { Link } from '@reach/router';
-import React, { memo } from 'react';
-import { Helmet } from 'react-helmet';
-import { useTranslation } from 'react-i18next';
 import { FaUserSecret, FaWalking } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 import { IoIosRocket } from 'react-icons/io';
+import { Link } from '@reach/router';
 import { RiRefreshLine } from 'react-icons/ri';
+import { useTranslation } from 'react-i18next';
+import React, { memo } from 'react';
 import Hero from '../components/landing/Hero';
 import Screenshots from '../components/landing/Screenshots';
 import Wrapper from '../components/shared/Wrapper';
@@ -33,7 +33,7 @@ const Home = () => {
 
         <Screenshots />
 
-        <div className="pt-8 grid lg:grid-cols-2 lg:col-gap-10">
+        <div className="pt-8 grid lg:grid-cols-2 lg:gap-x-10">
           <Feature
             icon={IoIosRocket}
             title="Create a resume that’s worthy of who you are."
@@ -95,7 +95,13 @@ const Home = () => {
             >
               Check Out Source Code
             </a>
-            <Link to="/faq">Upvote on Product Hunt</Link>
+            <a
+              href="https://www.producthunt.com/posts/reactive-resume"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Upvote on Product Hunt
+            </a>
             <a
               href="https://www.buymeacoffee.com/AmruthPillai"
               rel="noreferrer"
@@ -127,16 +133,14 @@ const Home = () => {
   );
 };
 
-const Feature = ({ icon: Icon, title, children }) => {
-  return (
-    <div className="mt-16">
-      <div className="flex items-center">
-        <Icon size="18px" className="text-primary-900 mr-4" />
-        <div className="text-3xl">{title}</div>
-      </div>
-      <p className="mt-6 text-lg leading-loose">{children}</p>
+const Feature = ({ icon: Icon, title, children }) => (
+  <div className="mt-16">
+    <div className="flex items-center">
+      <Icon size="18px" className="text-primary-900 mr-4" />
+      <div className="text-3xl">{title}</div>
     </div>
-  );
-};
+    <p className="mt-6 text-lg leading-loose">{children}</p>
+  </div>
+);
 
 export default memo(Home);

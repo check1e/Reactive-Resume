@@ -1,10 +1,10 @@
 import React, { memo, useContext } from 'react';
+import { isItemVisible, safetyCheck } from '../../../utils';
 import PageContext from '../../../contexts/PageContext';
-import { safetyCheck } from '../../../utils';
 
-const HobbyA = (x) => (
-  <div key={x.id}>
-    <h6 className="font-semibold">{x.name}</h6>
+const HobbyA = ({ id, name }) => (
+  <div key={id}>
+    <h6 className="font-semibold text-sm">{name}</h6>
   </div>
 );
 
@@ -14,7 +14,9 @@ const HobbiesA = () => {
   return safetyCheck(data.hobbies) ? (
     <div>
       <Heading>{data.hobbies.heading}</Heading>
-      <div className="grid gap-2">{data.hobbies.items.map(HobbyA)}</div>
+      <div className="grid gap-2">
+        {data.hobbies.items.map((x) => isItemVisible(x) && HobbyA(x))}
+      </div>
     </div>
   ) : null;
 };

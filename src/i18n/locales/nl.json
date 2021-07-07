@@ -9,7 +9,7 @@
       "required": "vereist",
       "website": "Website",
       "date": "Datum",
-      "present": "Aanwezig",
+      "present": "Heden",
       "position": "Functie",
       "startDate": "Startdatum",
       "endDate": "Einddatum",
@@ -18,6 +18,7 @@
       "email": "E-mailadres",
       "summary": "Samenvatting",
       "markdown": "Dit tekstblok ondersteunt <1>markdown</1>.",
+      "contact": "Contact",
       "validation": {
         "min": "Je wachtwoord moet uit minimaal {number} tekens bestaan",
         "dateRange": "Einddatum moet na het startdatum plaats vinden",
@@ -60,7 +61,8 @@
     "toasts": {
       "formErrors": "U moet u alle verplichte velden invullen voordat u dit formulier indient.",
       "doesNotExist": "De CV die u zocht bestaat niet meer... of misschien nooit?",
-      "loadDemoData": "Niet zeker waar te beginnen? Probeer de demogegevens te laden om te zien wat Reactive Resume te bieden heeft."
+      "loadDemoData": "Niet zeker waar te beginnen? Probeer de demogegevens te laden om te zien wat Reactive Resume te bieden heeft.",
+      "printError": "De cloud-functie werkt momenteel niet, probeer het later opnieuw of gebruik de print-functie in de webbrowser."
     },
     "sections": {
       "heading": "Titel",
@@ -86,6 +88,7 @@
       "templates": "Templates",
       "layout": "Layout",
       "colors": "Kleuren",
+      "font-size": "Lettergrootte",
       "fonts": "Lettertypes",
       "actions": "Acties",
       "settings": "Instellingen",
@@ -95,6 +98,7 @@
       "photograph": "foto",
       "firstName": "Voornaam",
       "lastName": "Achternaam",
+      "birthDate": "Geboortedatum",
       "address": {
         "line1": "Adresveld 1",
         "line2": "Adresveld 2",
@@ -151,7 +155,7 @@
       },
       "share": {
         "heading": "Deel uw CV",
-        "text": "De link hieronder is publiekelijk toegankelijk als u deze wilt delen, en kijkers zouden de laatste versie van uw CV op elk gewenst moment zien."
+        "text": "De onderstaande link is openbaar als je ervoor kiest om deze te delen. Bezoekers kunnen dan de meest recente versie van je CV zien."
       },
       "loadDemoData": {
         "text": "Onduidelijk op wat te doen met een verse lege pagina? Laad wat demogegevens om te zien hoe een hervatting eruit zou moeten zien en je kunt daar beginnen met bewerken.",

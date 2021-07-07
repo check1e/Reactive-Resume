@@ -1,6 +1,6 @@
 {
   "shared": {
-    "appName": "Interaktiver Lebenslauf",
+    "appName": "Reactive Resume",
     "shortDescription": "Eine freie und kostenlose Open Source Software, zum Erstellen von Lebensläufen.",
     "forms": {
       "name": "Name",
@@ -9,7 +9,7 @@
       "required": "erforderlich",
       "website": "Webseite",
       "date": "Datum",
-      "present": "Geschenk",
+      "present": "Gegenwart",
       "position": "Position",
       "startDate": "Startdatum",
       "endDate": "End-Datum",
@@ -18,6 +18,7 @@
       "email": "E-Mail Adresse",
       "summary": "Zusammenfassung",
       "markdown": "Dieser Textblock unterstützt <1>Markdown</1>.",
+      "contact": "Kontakt",
       "validation": {
         "min": "Bitte geben Sie mindestens {{number}} Zeichen ein.",
         "dateRange": "Das Enddatum kann nicht vor dem Startdatum liegen.",
@@ -60,7 +61,8 @@
     "toasts": {
       "formErrors": "Sie müssen alle erforderlichen Felder ausfüllen, bevor Sie dieses Formular abschicken.",
       "doesNotExist": "Der Lebenslauf, den Sie suchen, existiert nicht mehr... oder vielleicht hat er es nie getan?",
-      "loadDemoData": "Nicht sicher, wo Sie beginnen sollen? Versuchen Sie, Demodaten zu laden, um zu sehen, was Reactive Resume zu bieten hat."
+      "loadDemoData": "Nicht sicher, wo Sie beginnen sollen? Versuchen Sie, Demodaten zu laden, um zu sehen, was Reactive Resume zu bieten hat.",
+      "printError": "Bei der Cloud-Funktion treten Probleme auf. Versuchen Sie es später erneut oder verwenden Sie die Browser-Druckfunktion."
     },
     "sections": {
       "heading": "Überschrift",
@@ -86,6 +88,7 @@
       "templates": "Vorlagen",
       "layout": "Anordnung",
       "colors": "Farben",
+      "font-size": "Schriftgröße",
       "fonts": "Schriftarten",
       "actions": "Aktionen",
       "settings": "Einstellungen",
@@ -95,6 +98,7 @@
       "photograph": "Foto",
       "firstName": "Vorname",
       "lastName": "Nachname",
+      "birthDate": "Geburtsdatum",
       "address": {
         "line1": "Adresszeile 1",
         "line2": "Adresszeile 2",

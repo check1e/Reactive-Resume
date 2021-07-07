@@ -1,10 +1,10 @@
 import React, { memo, useContext } from 'react';
+import { isItemVisible, safetyCheck } from '../../../utils';
 import PageContext from '../../../contexts/PageContext';
-import { safetyCheck } from '../../../utils';
 
-const SkillItem = (x) => (
-  <li key={x.id} className="text-sm py-1">
-    {x.skill}
+const SkillItem = ({ id, skill }) => (
+  <li key={id} className="text-sm py-1">
+    {skill}
   </li>
 );
 
@@ -14,7 +14,7 @@ const SkillsA = () => {
   return safetyCheck(data.skills) ? (
     <div>
       <Heading>{data.skills.heading}</Heading>
-      <ul>{data.skills.items.map(SkillItem)}</ul>
+      <ul>{data.skills.items.map((x) => isItemVisible(x) && SkillItem(x))}</ul>
     </div>
   ) : null;
 };

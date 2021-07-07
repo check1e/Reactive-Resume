@@ -5,6 +5,7 @@
     "firstName": "",
     "lastName": "",
     "subtitle": "",
+    "birthDate": "",
     "address": {
       "line1": "",
       "line2": "",
@@ -73,6 +74,7 @@
     "language": "en",
     "template": "onyx",
     "font": "Montserrat",
+    "fontSize": 9,
     "layout": {
       "onyx": [
         ["objective", "work", "education", "projects"],
@@ -94,7 +96,15 @@
       ],
       "glalie": [
         ["awards", "certifications", "hobbies"],
-        ["objective", "work", "education", "skills", "projects", "languages", "references"]
+        [
+          "objective",
+          "work",
+          "education",
+          "skills",
+          "projects",
+          "languages",
+          "references"
+        ]
       ],
       "celebi": [
         ["awards", "certifications", "languages", "hobbies"],

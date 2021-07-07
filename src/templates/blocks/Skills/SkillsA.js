@@ -1,11 +1,11 @@
 import React, { memo, useContext } from 'react';
+import { isItemVisible, safetyCheck } from '../../../utils';
 import PageContext from '../../../contexts/PageContext';
-import { safetyCheck } from '../../../utils';
 
-const SkillItem = (x) => (
-  <div key={x.id} className="flex flex-col">
-    <h6 className="font-semibold">{x.name}</h6>
-    <span className="text-xs">{x.level}</span>
+const SkillItem = ({ id, name, level }) => (
+  <div key={id} className="flex flex-col">
+    <h6 className="font-semibold text-sm">{name}</h6>
+    <span className="text-xs">{level}</span>
   </div>
 );
 
@@ -15,8 +15,8 @@ const SkillsA = () => {
   return safetyCheck(data.skills) ? (
     <div>
       <Heading>{data.skills.heading}</Heading>
-      <div className="grid grid-cols-2 row-gap-2 col-gap-4">
-        {data.skills.items.map(SkillItem)}
+      <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+        {data.skills.items.map((x) => isItemVisible(x) && SkillItem(x))}
       </div>
     </div>
   ) : null;

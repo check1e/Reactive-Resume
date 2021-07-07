@@ -1,14 +1,15 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
-import PageContext from '../contexts/PageContext';
 import { hexToRgb } from '../utils';
 import AwardsA from './blocks/Awards/AwardsA';
 import CertificationsA from './blocks/Certifications/CertificationsA';
-import ContactE from './blocks/Contact/ContactE';
+import ContactC from './blocks/Contact/ContactC';
 import EducationA from './blocks/Education/EducationA';
 import HeadingE from './blocks/Heading/HeadingE';
 import HobbiesA from './blocks/Hobbies/HobbiesA';
 import LanguagesB from './blocks/Languages/LanguagesB';
 import ObjectiveA from './blocks/Objective/ObjectiveA';
+import PageContext from '../contexts/PageContext';
 import ProjectsA from './blocks/Projects/ProjectsA';
 import ReferencesA from './blocks/References/ReferencesA';
 import SkillsA from './blocks/Skills/SkillsA';
@@ -30,6 +31,7 @@ const Blocks = {
 const Celebi = ({ data }) => {
   const layout = data.metadata.layout.celebi;
   const { r, g, b } = hexToRgb(data.metadata.colors.primary) || {};
+  const { t } = useTranslation();
 
   const styles = {
     header: {
@@ -94,8 +96,14 @@ const Celebi = ({ data }) => {
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-4 ml-8" style={styles.leftSection}>
             <Photo />
+
             <div className="text-center grid gap-4 mt-4 mb-8 mx-6">
-              <ContactE />
+              <div>
+                <HeadingE>{t('builder.sections.profile')}</HeadingE>
+                <div className="relative w-full grid gap-4 text-xs">
+                  <ContactC />
+                </div>
+              </div>
 
               {layout[0] &&
                 layout[0].map((x) => {

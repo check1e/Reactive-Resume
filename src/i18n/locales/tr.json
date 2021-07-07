@@ -18,6 +18,7 @@
       "email": "Email Adresi",
       "summary": "Özet",
       "markdown": "Bu yazı alanı <1>markdown</1> destekliyor.",
+      "contact": "İletişim",
       "validation": {
         "min": "Lütfen en az {{number}} karakter giriniz.",
         "dateRange": "Bitiş Tarihi, Başlangıç Tarihi'nden sonra olmalıdır.",
@@ -60,7 +61,8 @@
     "toasts": {
       "formErrors": "Formu göndermeden önce bütün gerekli alanları doldurmanız gerekebilir.",
       "doesNotExist": "Aradığınız CV artık mevcut değil... Ya da hiç olmadı?",
-      "loadDemoData": "Nereden başlayacağınızı bilmiyor musunuz? Demo veri yüklemeyi deneyin ve Reactive Resume'nin sunduklarına bakın."
+      "loadDemoData": "Nereden başlayacağınızı bilmiyor musunuz? Demo veri yüklemeyi deneyin ve Reactive Resume'nin sunduklarına bakın.",
+      "printError": "Bulut işlevi bir sorunla karşılaşıyor, lütfen daha sonra tekrar deneyin veya tarayıcı yazdırma özelliğini kullanın."
     },
     "sections": {
       "heading": "Başlık",
@@ -86,6 +88,7 @@
       "templates": "Şablonlar",
       "layout": "Düzen",
       "colors": "Renkler",
+      "font-size": "Yazı Tipi Boyutu",
       "fonts": "Fontlar",
       "actions": "Eylemler",
       "settings": "Ayarlar",
@@ -95,6 +98,7 @@
       "photograph": "Fotoğraf",
       "firstName": "Ad",
       "lastName": "Soyad",
+      "birthDate": "Doğum Tarihi",
       "address": {
         "line1": "Adres Satırı 1",
         "line2": "Adres Satırı 2",

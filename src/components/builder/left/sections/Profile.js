@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import React, { memo } from 'react';
 import Heading from '../../../shared/Heading';
 import Input from '../../../shared/Input';
 import PhotoUpload from '../../../shared/PhotoUpload';
@@ -36,6 +36,13 @@ const Profile = ({ id }) => {
         name="subtitle"
         label={t('shared.forms.subtitle')}
         path="profile.subtitle"
+      />
+
+      <Input
+        type="date"
+        name="birthDate"
+        label={t('builder.profile.birthDate')}
+        path="profile.birthDate"
       />
 
       <hr />

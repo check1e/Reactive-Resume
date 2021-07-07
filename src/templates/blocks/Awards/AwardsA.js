@@ -1,13 +1,13 @@
 import React, { memo, useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { formatDate, isItemVisible, safetyCheck } from '../../../utils';
 import PageContext from '../../../contexts/PageContext';
-import { formatDate, safetyCheck } from '../../../utils';
 
 const AwardItem = ({ item, language }) => (
   <div>
     <div className="flex justify-between items-center">
       <div className="flex flex-col text-left mr-2">
-        <h6 className="font-semibold">{item.title}</h6>
+        <h6 className="font-semibold text-sm">{item.title}</h6>
         <span className="text-xs">{item.awarder}</span>
       </div>
       {item.date && (
@@ -17,7 +17,9 @@ const AwardItem = ({ item, language }) => (
       )}
     </div>
     {item.summary && (
-      <ReactMarkdown className="markdown mt-2 text-sm" source={item.summary} />
+      <ReactMarkdown className="markdown mt-2 text-sm">
+        {item.summary}
+      </ReactMarkdown>
     )}
   </div>
 );
@@ -29,9 +31,16 @@ const AwardsA = () => {
     <div>
       <Heading>{data.awards.heading}</Heading>
       <div className="grid gap-4">
-        {data.awards.items.map((x) => (
-          <AwardItem key={x.id} item={x} language={data.metadata.language} />
-        ))}
+        {data.awards.items.map(
+          (x) =>
+            isItemVisible(x) && (
+              <AwardItem
+                key={x.id}
+                item={x}
+                language={data.metadata.language}
+              />
+            ),
+        )}
       </div>
     </div>
   ) : null;
